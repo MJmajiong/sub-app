@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-
+import active from "../views/active.vue"
 Vue.use(VueRouter);
 
 const routes = [
@@ -18,12 +18,17 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue")
+  },
+  {
+    path:"/active",
+    name:'active',
+    component: active
   }
 ];
 
 const router = new VueRouter({
   mode: "history",
-  base: process.env.BASE_URL,
+  // base: window.__POWERED_BY_QIANKUN__ ? '/' : '',
   routes
 });
 
